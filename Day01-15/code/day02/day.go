@@ -24,5 +24,5 @@ func Pnums()  {
 	for i, v:=range nums{
 		fmt.Printf("i=%d &i=%p, v=%d, &v=%p \n", i, &i, v, &v)
 	}
-	fmt.Println(a,b,c,d,e,f,g,h,i)
+	fmt.Println(a, b, c, d, e, f, g, h, i)
 }
