@@ -1,9 +1,9 @@
 package main
 
 import (
-	"Go-100days/Day01-15/code/day04"
+	"Go-100days/Day01-15/code/day06"
 )
 
 func main() {
-	day04.Pmain4()
+	day06.Pmain6()
 }
