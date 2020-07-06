@@ -2,6 +2,6 @@ package day01
 
 import "fmt"
 
-func PrintC()  {
+func PrintC() {
 	fmt.Println("printC")
 }

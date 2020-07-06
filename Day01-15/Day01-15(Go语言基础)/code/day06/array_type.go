@@ -16,7 +16,7 @@ func main() {
 				int,float,string,bool,array
 		引用类型：理解为存储的数据的内存地址
 				slice，map。。
-	 */
+	*/
 
 	//1.数据类型
 	num := 10
@@ -32,7 +32,7 @@ func main() {
 	fmt.Printf("%T\n", arr4) //[2]string
 
 	//2.赋值
-	num2 := num //值传递
+	num2 := num            //值传递
 	fmt.Println(num, num2) //10 10
 	num2 = 20
 	fmt.Println(num, num2) //10 20
@@ -42,13 +42,13 @@ func main() {
 	fmt.Println(arr1)
 	fmt.Println(arr5)
 
-	arr5[0] =1
+	arr5[0] = 1
 	fmt.Println(arr1)
 	fmt.Println(arr5)
 
 	a := 3
 	b := 4
-	fmt.Println(a==b) //比较a和b的数值是否相等
+	fmt.Println(a == b)       //比较a和b的数值是否相等
 	fmt.Println(arr5 == arr1) //比较数组的对应下标位置的数值是否相等
 	//fmt.Println(arr1 == arr2) //invalid operation: arr1 == arr2 (mismatched types [4]int and [3]float64)
 

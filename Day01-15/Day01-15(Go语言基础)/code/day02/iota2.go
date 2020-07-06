@@ -4,15 +4,15 @@ import "fmt"
 
 func main() {
 	const (
-		A = iota // 0
-		B // 1
-		C // 2
+		A = iota   // 0
+		B          // 1
+		C          // 2
 		D = "haha" // iota = 3
-		E // haha iota = 4
-		F = 100 //iota =5
-		G //100 iota = 6
-		H = iota // 7
-		I //iota 8
+		E          // haha iota = 4
+		F = 100    //iota =5
+		G          //100 iota = 6
+		H = iota   // 7
+		I          //iota 8
 	)
 	const (
 		J = iota // 0

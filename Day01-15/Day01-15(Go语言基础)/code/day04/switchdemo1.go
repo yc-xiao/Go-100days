@@ -4,22 +4,22 @@ import "fmt"
 
 func main() {
 	/*
-	switch语句：
-	语法结构：
-		switch 变量名{
-		case 数值1：分支1
-		case 数值2：分支2
-		case 数值3：分支3
-		。。。。
-		default：
-			最后一个分支
-		}
-	注意事项：
-		1.switch可以作用在其他类型上，case后的数值必须和switch作用的变量类型一致
-		2.case是无序的
-		3.case后的数值是唯一的(duplicate case 3 in switch)
-		4.default语句是可选的操作
-	 */
+		switch语句：
+		语法结构：
+			switch 变量名{
+			case 数值1：分支1
+			case 数值2：分支2
+			case 数值3：分支3
+			。。。。
+			default：
+				最后一个分支
+			}
+		注意事项：
+			1.switch可以作用在其他类型上，case后的数值必须和switch作用的变量类型一致
+			2.case是无序的
+			3.case后的数值是唯一的(duplicate case 3 in switch)
+			4.default语句是可选的操作
+	*/
 	num := 3 //int
 	switch num {
 	default:

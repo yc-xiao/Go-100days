@@ -21,28 +21,28 @@ func main() {
 					参数列表的最后。
 				B：一个函数的参数列表中最多只能有一个可变参数。
 
-	 */
-	 //1.求和
-	 getSum()
+	*/
+	//1.求和
+	getSum()
 
-	 getSum(1,2,3,4,5)
+	getSum(1, 2, 3, 4, 5)
 
-	 getSum(1,2,3,4,5,6,7,8,9,10)
+	getSum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
-	 //2.切片
-	 s1 :=[]int{1,2,3,4,5}
-	 getSum(s1...)
+	//2.切片
+	s1 := []int{1, 2, 3, 4, 5}
+	getSum(s1...)
 }
 
-func getSum(nums ... int){
+func getSum(nums ...int) {
 	//fmt.Printf("%T\n",nums) //[]int
 	sum := 0
-	for i := 0;i <len(nums);i++{
+	for i := 0; i < len(nums); i++ {
 		sum += nums[i]
 	}
-	fmt.Println("总和是：",sum)
+	fmt.Println("总和是：", sum)
 }
 
-func fun1(s1,s2 string,nums ... float64){
+func fun1(s1, s2 string, nums ...float64) {
 
 }

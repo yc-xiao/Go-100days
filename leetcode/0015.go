@@ -20,7 +20,7 @@ func threeSum(nums []int) [][]int {
 
 	ll := len(nums)
 	var temp_arr []int
-	for i:=0;i<ll-2;i++ {
+	for i := 0; i < ll-2; i++ {
 		for j := i + 1; j < ll-1; j++ {
 
 			n1 := strconv.Itoa(nums[i])
@@ -54,19 +54,18 @@ func threeSum(nums []int) [][]int {
 	return arrs
 }
 
-
-func sort_set(nums[]int)  []int{
+func sort_set(nums []int) []int {
 	ll := len(nums)
-	for i:=0;i<ll;i++{
-		for j:=i+1;j<ll;j++{
-			if  nums[i]>nums[j]{
-				nums[i],nums[j] = nums[j],nums[i]
+	for i := 0; i < ll; i++ {
+		for j := i + 1; j < ll; j++ {
+			if nums[i] > nums[j] {
+				nums[i], nums[j] = nums[j], nums[i]
 			}
 		}
 	}
 	arr := []int{}
 	dic := map[int]int{}
-	for i:=0;i<ll;i++{
+	for i := 0; i < ll; i++ {
 		_, ok := dic[nums[i]]
 		if ok {
 			continue
@@ -78,13 +77,13 @@ func sort_set(nums[]int)  []int{
 }
 
 func main() {
-	nums := []int{9,-15,6,6,10,-2,8,8,0,-6,-4,-2,14,-6,-14,-2,12,5,-2,-8,13,13,-10,4,-6,8,6,-15,-5,11,-15,11,3,-2,-6,-10,11,-12,13,-12,-11,-5,2,10,-4,-5,-15,-7,7,-2,0,5,-11,-3,-13,-10,-9,0,-10,-7,-12,12,-11,7,-5,-1,12,-8,-6,3,-13,-10,5,-4,-14,-14,6,8,-14,-9,-8,-7,3,-4,6,5,1,12,-9,6,-10,-6,-5,-14,-14,5,-8,6,4,1}
+	nums := []int{9, -15, 6, 6, 10, -2, 8, 8, 0, -6, -4, -2, 14, -6, -14, -2, 12, 5, -2, -8, 13, 13, -10, 4, -6, 8, 6, -15, -5, 11, -15, 11, 3, -2, -6, -10, 11, -12, 13, -12, -11, -5, 2, 10, -4, -5, -15, -7, 7, -2, 0, 5, -11, -3, -13, -10, -9, 0, -10, -7, -12, 12, -11, 7, -5, -1, 12, -8, -6, 3, -13, -10, 5, -4, -14, -14, 6, 8, -14, -9, -8, -7, 3, -4, 6, 5, 1, 12, -9, 6, -10, -6, -5, -14, -14, 5, -8, 6, 4, 1}
 	println(len(nums))
 	nums = sort_set(nums)
 	println(len(nums))
 	fmt.Println(nums)
-	result:=threeSum(nums)
-	for i, v := range result{
+	result := threeSum(nums)
+	for i, v := range result {
 		fmt.Println(v, i)
 	}
 	fmt.Println(len(result))

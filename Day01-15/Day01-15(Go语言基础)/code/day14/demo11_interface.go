@@ -4,8 +4,8 @@ import "fmt"
 
 func main() {
 	/*
-	接口的嵌套：
-	 */
+		接口的嵌套：
+	*/
 	var cat Cat = Cat{}
 	cat.test1()
 	cat.test2()

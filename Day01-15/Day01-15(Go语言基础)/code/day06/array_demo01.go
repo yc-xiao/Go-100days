@@ -28,53 +28,53 @@ func main() {
 			4.长度和容量：go语言的内置函数
 				len(array/map/slice/string)，长度
 				cap()，容量
-	 */
+	*/
 
-	 var num1 int
-	 num1 = 100
+	var num1 int
+	num1 = 100
 
-	 num1 = 200
-	 fmt.Println(num1)
-	 fmt.Printf("%p\n",&num1)
+	num1 = 200
+	fmt.Println(num1)
+	fmt.Printf("%p\n", &num1)
 
-	 //step1：创建数组
-	 var arr1 [4] int
-	 fmt.Printf("%p\n",&arr1)
-	 //step2：数组的访问
-	 arr1[0] = 1
-	 arr1[1] = 2
-	 arr1[2] = 3
-	 arr1[3] = 4
-	 fmt.Println(arr1[0])//打印第一个数值
-	 fmt.Println(arr1[2])//打印第三个数值
-	 //fmt.Println(arr1[4]) //invalid array index 4 (out of bounds for 4-element array)
+	//step1：创建数组
+	var arr1 [4]int
+	fmt.Printf("%p\n", &arr1)
+	//step2：数组的访问
+	arr1[0] = 1
+	arr1[1] = 2
+	arr1[2] = 3
+	arr1[3] = 4
+	fmt.Println(arr1[0]) //打印第一个数值
+	fmt.Println(arr1[2]) //打印第三个数值
+	//fmt.Println(arr1[4]) //invalid array index 4 (out of bounds for 4-element array)
 
-	 fmt.Println("数组的长度：",len(arr1)) //容器中实际存储的数据量
-	 fmt.Println("数组的容量：",cap(arr1)) //容器中能够存储的最大的数量
-	 //因为数组定长，长度和容量相同
-	 arr1[0] = 100
-	 fmt.Println(arr1[0])
+	fmt.Println("数组的长度：", len(arr1)) //容器中实际存储的数据量
+	fmt.Println("数组的容量：", cap(arr1)) //容器中能够存储的最大的数量
+	//因为数组定长，长度和容量相同
+	arr1[0] = 100
+	fmt.Println(arr1[0])
 
 	//数组的其他创建方式
-	var a [4] int //同 var a= [4] int
+	var a [4]int //同 var a= [4] int
 	fmt.Println(a)
 
-	var b = [4]int{1,2,3,4}
+	var b = [4]int{1, 2, 3, 4}
 	fmt.Println(b)
 
-	var c = [5]int{1,2,4}
+	var c = [5]int{1, 2, 4}
 	fmt.Println(c)
 
-	var d = [5]int{1:1,3:2}
+	var d = [5]int{1: 1, 3: 2}
 	fmt.Println(d)
 
-	var e = [5]string{"rose","王二狗","ruby"}
+	var e = [5]string{"rose", "王二狗", "ruby"}
 	fmt.Println(e)
 
-	f := [...]int{1,2,3,4,5}
+	f := [...]int{1, 2, 3, 4, 5}
 	fmt.Println(f)
 	fmt.Println(len(f))
-	g:=[...]int{1:3,6:5}
+	g := [...]int{1: 3, 6: 5}
 	fmt.Println(g)
 	fmt.Println(len(g))
 }

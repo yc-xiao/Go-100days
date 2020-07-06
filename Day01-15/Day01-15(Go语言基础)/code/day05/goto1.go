@@ -4,9 +4,9 @@ import "fmt"
 
 func main() {
 	/*
-	goto语句：
+		goto语句：
 
-	 */
+	*/
 
 	var a = 10
 LOOP:
