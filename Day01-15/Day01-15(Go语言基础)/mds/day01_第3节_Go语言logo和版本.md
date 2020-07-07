@@ -9,7 +9,7 @@
 
 
 
-![go_logo_meitu_1](img/go_logo_meitu_1.jpg)
+![go_logo_meitu_1](../img/go_logo_meitu_1.jpg)
 
 Go语言的logo就是很简洁的GO两个字母。
 
@@ -17,19 +17,19 @@ Go语言的logo就是很简洁的GO两个字母。
 
 
 
-![go_logo2](img/go_logo2.jpeg)
+![go_logo2](../img/go_logo2.jpeg)
 
 Go之所以叫Go，是想表达这门语言的运行速度、开发速度、学习速度（develop）都像gopher一样快。
 
 gopher是一种生活在加拿大的小动物，go的吉祥物就是这个小动物， 它的中文名叫做囊地鼠，他们最大的特点就是挖洞速度特别快，当然可能不止是挖洞啦。
 
-![tuboshu](img/tuboshu.jpeg)
+![tuboshu](../img/tuboshu.jpeg)
 
 
 
 ## 二、[Go的官网](https://golang.google.cn/)
 
-![goguanwang](img/goguanwang.png)
+![goguanwang](../img/goguanwang.png)
 
 ## 三、 Go语言主要发展过程
 
@@ -100,7 +100,7 @@ Go 语言起源 2007 年，并于 2009 年正式对外发布。它从 2009 年 9
 
 
 
-![image](img/image.png)
+![image](../img/image.png)
 
 
 

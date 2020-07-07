@@ -261,7 +261,7 @@ main 函数只能用于 main 包中，且只能定义一个。
 
 如果 package 存在依赖，调用顺序为最后被依赖的最先被初始化，例如：导入顺序 main –> A –> B –> C，则初始化顺序为 C –> B –> A –> main，一次执行对应的 init 方法。main 包总是被最后一个初始化，因为它总是依赖别的包
 
-![20170831112523944](img/20170831112523944.png)
+![20170831112523944](../img/20170831112523944.png)
 
 图片引自网络
 
@@ -287,7 +287,7 @@ localhost:~ ruby$ go get github.com/go-sql-driver/mysql
 
 安装之后，就可以在gopath目录的src下，看到对应的文件包目录：
 
-![anzhuangbao1](img/anzhuangbao1.png)
+![anzhuangbao1](../img/anzhuangbao1.png)
 
 
 

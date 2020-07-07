@@ -7,7 +7,7 @@
 
 首先我们登录Golang的官方网站：https://golang.org/
 
-![guanwang2](img/guanwang2.png)
+![guanwang2](../img/guanwang2.png)
 
 
 
@@ -17,7 +17,7 @@
 
 当然你也可以登录Golang的国内网站：<https://golang.google.cn/>
 
-![WX20190403-095602](img/guanwang1.png)
+![WX20190403-095602](../img/guanwang1.png)
 
 ## 二、下载
 
@@ -25,7 +25,7 @@
 
 在Mac、Windows和Linux三个平台上都支持Golang。您可以从<https://golang.org/dl/>下载相应平台的安装包。
 
-![xiazai1](img/xiazai1.png)
+![xiazai1](../img/xiazai1.png)
 
 
 
@@ -33,13 +33,13 @@
 
 <https://www.studygolang.com/dl> 进行安装软件的下载。
 
-![xiazai2](img/xiazai2.png)
+![xiazai2](../img/xiazai2.png)
 
 
 
 和
 
-![xiazai3](img/xiazai3.png)
+![xiazai3](../img/xiazai3.png)
 
 
 
@@ -100,7 +100,7 @@ ruby@hanru:~$ cd 下载
 ruby@hanru:~/下载$ ls
 ```
 
-![ubuntu1](img/ubuntu1.png)
+![ubuntu1](../img/ubuntu1.png)
 
 
 
@@ -110,7 +110,7 @@ ruby@hanru:~/下载$ ls
 ruby@ubuntu:~/下载$ sudo tar -xzf go1.12.1.linux-amd64.tar.gz -C /usr/local
 ```
 
-![ubuntu2](img/ubuntu2.png)
+![ubuntu2](../img/ubuntu2.png)
 
 
 
@@ -120,7 +120,7 @@ ruby@ubuntu:~/下载$ sudo tar -xzf go1.12.1.linux-amd64.tar.gz -C /usr/local
 
 可以进入这个文件夹直接查看：
 
-![ubuntu3](img/ubuntu3.png)
+![ubuntu3](../img/ubuntu3.png)
 
 
 
@@ -131,7 +131,7 @@ ruby@hanru:~/下载$ cd /usr/local
 ruby@hanru:/usr/local$ ls
 ```
 
-![ubuntu4](img/ubuntu4.png)
+![ubuntu4](../img/ubuntu4.png)
 
 
 
@@ -293,7 +293,7 @@ Mac分为压缩版和安装版，他们都是64位的。压缩版和Linux的大�
 
 找到下载后的pkg安装包：一般情况下，下载后的文件都在下载目录下。
 
-![anzhuang1](img/anzhuang1.png)
+![anzhuang1](../img/anzhuang1.png)
 
 
 
@@ -347,7 +347,7 @@ export PATH=$PATH:$GOBIN
 
 - GOPATH：Go工程的路径（例：E:\go）。如果有多个，就以分号分隔添加
 
-  ![winhuanjing1](img/winhuanjing1.jpg)
+  ![winhuanjing1](../img/winhuanjing1.jpg)
 
 **修改：**
 
@@ -357,7 +357,7 @@ export PATH=$PATH:$GOBIN
 
   
 
-  ![winhuanjing2](img/winhuanjing2.jpg)
+  ![winhuanjing2](../img/winhuanjing2.jpg)
 
   
 

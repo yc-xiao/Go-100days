@@ -8,7 +8,7 @@
 
 以下是go中可用的基本数据类型
 
-![002shujuleixng](img/002shujuleixng.jpg)
+![002shujuleixng](../img/002shujuleixng.jpg)
 
 
 

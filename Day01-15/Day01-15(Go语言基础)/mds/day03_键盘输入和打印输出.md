@@ -12,7 +12,7 @@ fmt包实现了类似C语言printf和scanf的格式化I/O。格式化verb（'ver
 
 详见官网fmt的API：https://golang.google.cn/pkg/fmt/
 
-![fmtpackage](img/fmtpackage.png)
+![fmtpackage](../img/fmtpackage.png)
 
 
 
@@ -98,7 +98,7 @@ func main() {
 
 运行结果：
 
-![yunxing1](img/yunxing1.png)
+![yunxing1](../img/yunxing1.png)
 
 
 
@@ -137,7 +137,7 @@ func main() {
 
 运行结果：
 
-![yunxing2](img/yunxing2.png)
+![yunxing2](../img/yunxing2.png)
 
 
 
@@ -151,13 +151,13 @@ bufio包中都是IO操作的方法：
 
 先创建Reader对象：
 
-![bufio1](img/bufio1.png)
+![bufio1](../img/bufio1.png)
 
 
 
 然后就可以各种读取了：
 
-![bufio2](img/bufio2.png)
+![bufio2](../img/bufio2.png)
 
 
 
@@ -183,7 +183,7 @@ func main() {
 
 运行效果：
 
-![yunxing3](img/yunxing3.png)
+![yunxing3](../img/yunxing3.png)
 
 
 

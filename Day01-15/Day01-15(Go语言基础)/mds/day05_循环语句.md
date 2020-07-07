@@ -219,7 +219,7 @@ label: statement;
 
 
 
-![goto1](img/goto1.jpg)
+![goto1](../img/goto1.jpg)
 
 ```go
 package main
