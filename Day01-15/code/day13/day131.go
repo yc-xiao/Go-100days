@@ -3,17 +3,17 @@ package day13
 import "fmt"
 
 type A struct {
-	int
+	name string
 }
 
 // B 继承A 拥有A的方法
 type B struct {
 	A
-	int
+	name string
 }
 
 type C struct {
-	int
+	name string
 }
 
 // D 继承　A,C
@@ -37,16 +37,23 @@ func (a A) publicFunc() {
 }
 
 func Pmain131() {
-	a := A{10}
-	b := B{a, 20}
-	c := C{30}
+	a := A{"a"}
+	b := B{a, "b"}
+	c := C{"c"}
 	d := D{a, c}
 	e := E{a}
 
 	fmt.Println(a, b, c, d)
-	fmt.Println(a, a.int)
-	fmt.Println(b, b.int, b.A.int)
-	fmt.Println(c, c.int)
-	fmt.Println(d, d.A.int, d.C.int)
-	fmt.Println(e, e.int)
+	// a a.name
+	fmt.Println(a, a.name)
+	// b -> a   b.name->b  b.A.name -> a
+	fmt.Println(b, b.name, b.A.name)
+	// c c.name
+	fmt.Println(c, c.name)
+	// d -> a,c  d.A.name -> a   d.C.name -> c
+	fmt.Println(d, d.A.name, d.C.name)
+	// e -> a   e.name -> a
+	fmt.Println(e, e.name)
+
+	e.publicFunc()
 }
