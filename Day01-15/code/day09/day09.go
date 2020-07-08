@@ -35,8 +35,8 @@ func Pmain8() {
 	// 字符串<==>数字
 	s, n := "10", 10
 	sn, _ := strconv.ParseInt(s, 10, 32)
-	fmt.Printf("%T, %v, %T, %v\n", s, s,  sn, sn)
+	fmt.Printf("%T, %v, %T, %v\n", s, s, sn, sn)
 	ns := strconv.FormatInt(int64(n), 10)
-	fmt.Printf("%T, %v, %T, %v", n, n,  ns, ns)
+	fmt.Printf("%T, %v, %T, %v", n, n, ns, ns)
 
 }

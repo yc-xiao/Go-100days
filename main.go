@@ -1,7 +1,7 @@
 package main
 
-import "Go-100days/Day01-15/code/day13"
+import . "Go-100days/Day01-15/code/day14"
 
 func main() {
-	day13.Pmain131()
+	Pmain14_3()
 }

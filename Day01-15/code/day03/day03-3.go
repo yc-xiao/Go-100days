@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func Pmain33() {
+func Pmain3_3() {
 	rand.Seed(time.Now().UnixNano()) // 设置随机种子, 若不设置，每次运行结果都一致
 	n := rand.Int()
 	n1 := rand.Intn(100)      // [0-100]

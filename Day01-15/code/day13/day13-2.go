@@ -36,7 +36,7 @@ func (a A) publicFunc() {
 	fmt.Printf("%v publicFunc\n", a)
 }
 
-func Pmain131() {
+func Pmain13_2() {
 	a := A{"a"}
 	b := B{a, "b"}
 	c := C{"c"}
