@@ -1,7 +1,7 @@
 package main
-
-import "Go-100days/Day16-20/code/day18"
+import "github.com/astaxie/beego"
 
 func main() {
-	day18.Pmain18_2()
+	beego.Info("第一个beego案例")
+	beego.Run("localhost:8080")
 }
