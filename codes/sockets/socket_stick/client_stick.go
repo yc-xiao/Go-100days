@@ -2,14 +2,13 @@ package socket_stick
 
 import (
 	"Go-100days/codes/sockets"
-	"Go-100days/codes/sockets/proto"
 	"fmt"
 	"log"
 	"net"
 )
 
-func TcpClientSafe()  {
-	label := "TcpClientSafe -> "
+func TcpClientStick() {
+	label := "TcpClientStcick -> "
 	conn, err := net.Dial("tcp", sockets.ADDR)
 	if err != nil {
 		log.Fatal(label, err)
@@ -26,10 +25,9 @@ func TcpClientSafe()  {
 		"艰难苦恨繁霜鬓，",
 		"潦倒新停浊酒杯。",
 	}
-	for i:=1; i<=10; i++ {
+	for i := 1; i <= 10; i++ {
 		for _, s := range strs {
 			data := []byte(s)
-			data = proto.Encode(data)
 			conn.Write(data)
 			fmt.Println(label, s)
 		}
