@@ -61,7 +61,9 @@ func Pmain19_3()  {
 	for i:=0;i<ppte.NumField();i++ {
 		eft := ppte.Field(i)
 		efv := ppve.Field(i)
+		fmt.Println(eft.Name, eft.Type.Name())
 		fmt.Println(eft, efv)
 	}
 	fmt.Println(ppv.CanSet(), ppve.CanSet())
+
 }
