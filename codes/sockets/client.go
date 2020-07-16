@@ -42,3 +42,41 @@ func TcpClient(addr string) {
 func DefaultTcpClient() {
 	TcpClient(ADDR)
 }
+
+func UdpClient(addr string) {
+	IP, Port, err := strToip(addr)
+	if err != nil {
+		log.Fatal("strToip error -> ", err)
+	}
+	client, err := net.DialUDP("udp", nil, &net.UDPAddr{IP: IP, Port: Port})
+	if err != nil {
+		log.Fatal("UdpClient error -> ", err)
+	}
+	fmt.Println("UpdClient -> ", IP, Port)
+	defer client.Close()
+	inputReader := bufio.NewReader(os.Stdin)
+
+	for {
+		data, err := inputReader.ReadString('\n')
+		if err != nil {
+			fmt.Println("inputReader error -> ", err)
+			break
+		}
+		data = strings.Trim(data, "\r\n")
+		if strings.ToUpper(data) == "Q" {
+			fmt.Println("client Q break ")
+			break
+		}
+
+		_, err = client.Write([]byte(data))
+		if err != nil {
+			fmt.Println("client error -> ", err)
+			break
+		}
+		fmt.Println("client write -> ", data)
+	}
+}
+
+func DefaultUdpClient() {
+	UdpClient(ADDR)
+}

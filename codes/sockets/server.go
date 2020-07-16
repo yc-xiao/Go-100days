@@ -52,3 +52,28 @@ func TcpServer(address string) {
 func DefaultTcpServer() {
 	TcpServer(ADDR)
 }
+
+func UdpServer(addr string) {
+	IP, Port, err := strToip(addr)
+	if err != nil {
+		log.Fatal("strToip error -> ", err)
+	}
+	server, err := net.ListenUDP("udp", &net.UDPAddr{IP: IP, Port: Port})
+	if err != nil {
+		log.Fatal("UdpServer listen error -> ", err)
+	}
+	fmt.Println("UpdServer -> ", IP, Port)
+	defer server.Close()
+	data := make([]byte, 1024, 1024)
+	for {
+		n, addr, err := server.ReadFrom(data)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("server read -> %s from %s \n", string(data[:n]), addr)
+	}
+}
+
+func DefaultUdpServer() {
+	UdpServer(ADDR)
+}
