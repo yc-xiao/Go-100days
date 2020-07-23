@@ -1,6 +1,9 @@
 package examples
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 // Channel
 
@@ -14,6 +17,78 @@ var Func20 = Func20C
 var Func19 = Func19C
 var Func18 = Func18C
 var Func17 = Func17C
+
+func Func57() {
+	var x interface{}
+	var y interface{} = []int{3, 5}
+	_ = x == x
+	_ = x == y
+	//_ = y == y --> err
+}
+
+func Func49_1() {
+	type People struct {
+		name string `json:"name"`
+	}
+	js := `{
+         "name":"seekload"
+     }`
+	var p People
+	err := json.Unmarshal([]byte(js), &p)
+	if err != nil {
+		fmt.Println("err: ", err)
+		return
+	}
+	fmt.Println(p) // 小写不能被其他包读取
+}
+
+func Func49() {
+	var ch chan int
+	select {
+	case v, ok := <-ch:
+		println(v, ok)
+	default:
+		println("default")
+	}
+}
+
+func Func48() {
+	/*
+		type foo struct {
+			bar int
+		}
+
+		var f foo
+		f.bar, tmp := 1, 2 // struct. 不支持 :=
+		fmt.Println(f.bar, tmp)
+	*/
+}
+
+func Func47() {
+	x := 1
+	fmt.Println(x) // 1
+	{
+		fmt.Println(x)    // 1
+		i, x := 2, 2      // := 赋值，　在局部变量找，　找不到为新值
+		fmt.Println(i, x) // 2 2
+	}
+	fmt.Println(x) // 1
+}
+
+func Func42() {
+	/*
+		type ConfigOne struct {
+			Daemon string
+		}
+
+		func (c *ConfigOne) String() string {
+			return fmt.Sprintf("print: %v", c)
+		}
+		c := &ConfigOne{}
+		c.String()
+		--> 直接死循环
+	*/
+}
 
 func Func41() {
 	var x = []int{2: 2, 3, 0: 1}
