@@ -1,4 +1,4 @@
-package main
+package examples
 
 import "fmt"
 
@@ -23,7 +23,7 @@ func test3() {
 	fmt.Println(size, maxSize)
 }
 
-func main() {
+func Func4() {
 	test1()
 	test2()
 	test3()

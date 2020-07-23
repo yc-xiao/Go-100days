@@ -1,0 +1,1 @@
+[GO博客站点1](http://www.topgoer.com/)

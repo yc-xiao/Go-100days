@@ -1,4 +1,4 @@
-package main
+package examples
 
 import "fmt"
 
@@ -34,7 +34,7 @@ func testMake() {
 	}
 }
 
-func main() {
+func Func3() {
 	testSlice()
 	testMake()
 }

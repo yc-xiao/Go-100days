@@ -1,11 +1,11 @@
-package main
+package examples
 
 import "fmt"
 
-func main() {
+func Func5() {
 	/*
 		== 相同类型比较
-	 */
+	*/
 	sn1 := struct {
 		age  int
 		name string
@@ -27,8 +27,8 @@ func main() {
 		age int
 		m   map[string]string
 	}{age: 11, m: map[string]string{"a": "1"}}
-
-	if sm1 == sm2 {
-		fmt.Println("sm1 == sm2")
-	}
+	fmt.Println(sm1, sm2)
+	//if sm1 == sm2 {
+	//	fmt.Println("sm1 == sm2")
+	//}
 }
