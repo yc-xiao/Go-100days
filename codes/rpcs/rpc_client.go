@@ -23,10 +23,10 @@ func main() {
 	if err2 != nil {
 		log.Fatal(err2)
 	}
-	fmt.Println("相加：", ret)
-	err3 := conn.Call("Obj.Reduce", Obj2{50, 100}, &ret)
+	fmt.Println("Add -> ", ret)
+	err3 := conn.Call("Obj.Add2", []int{50, 10}, &ret)
 	if err3 != nil {
 		log.Fatal(err3)
 	}
-	fmt.Println("相差：", ret)
+	fmt.Println("Add2 -> ", ret)
 }
