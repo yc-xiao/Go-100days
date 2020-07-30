@@ -22,11 +22,15 @@ func (o *Obj) Add2(ns []int, ret *int) error {
 }
 
 func main() {
-	// 1. 注册
-	// 2. 添加到路由，进行rpc处理
-	// 3. 启动http
-	// ps 只接收两个参数，第二个参数是固定返回值
-	rpc.Register(new(Obj))
-	rpc.HandleHTTP()
-	http.ListenAndServe(":9099", nil)
+	/*
+		PS:
+			1) 方法类型（T）是导出的（首字母大写）
+			2) 方法名（MethodName）是导出的
+			3) 方法有2个参数(argType T1, replyType *T2)，均为导出/内置类型
+			4) 方法的第2个参数一个指针(replyType *T2)
+			5) 方法的返回值类型是 error
+	*/
+	rpc.Register(new(Obj))            // 1. 注册
+	rpc.HandleHTTP()                  // 2. 添加到路由，进行rpc处理
+	http.ListenAndServe(":9099", nil) // 3. 启动http
 }
