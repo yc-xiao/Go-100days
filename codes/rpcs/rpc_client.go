@@ -6,6 +6,7 @@ import (
 	"net/rpc"
 )
 
+// 只需要属性跟Obj一样，发送对象后，会将对应值赋予Obj并返回结果
 type Obj2 struct {
 	A, B int
 }

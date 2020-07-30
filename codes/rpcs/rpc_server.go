@@ -21,6 +21,9 @@ func (o *Obj) Reduce(o1 Obj, ret *int) error {
 
 func main() {
 	o := new(Obj)
+	// 1. 注册
+	// 2. 添加到路由
+	// 3. 启动http
 	rpc.Register(o)
 	rpc.HandleHTTP()
 	http.ListenAndServe(":9099", nil)
