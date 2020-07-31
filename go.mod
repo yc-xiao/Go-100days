@@ -1,4 +1,4 @@
-module Go-100days/learn
+module Go-100days
 
 go 1.14
 

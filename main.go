@@ -1,7 +1,7 @@
 package main
 
 import (
-    "Go-100days/learn/Day1-20/Day01-15/code/day06"
+    "Go-100days/Day1-20/Day01-15/code/day06"
     "fmt"
 )
 
