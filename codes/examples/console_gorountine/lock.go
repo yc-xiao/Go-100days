@@ -61,23 +61,59 @@ func test4(i int, wg *sync.WaitGroup) {
 	}(i)
 }
 
-func test(f func(i int, wg *sync.WaitGroup), funName string) {
+func test(f func(i int, wg *sync.WaitGroup)) {
 	var wg sync.WaitGroup
 	wg.Add(GoNum)
 	for i := 0; i < GoNum; i++ {
-		f(i, &wg)
+		//f(i, &wg)  // 会立马退出，不等待子go
+		go f(i, &wg) // 并发执行，执行完解锁，等待子go
 	}
 	wg.Wait()
 	fmt.Println()
+}
 
-	// 并发无法控制顺序，wg无法控制多个并发的顺序
-	// 此处没有使用go协程， 用休眠等待
-	time.Sleep(T * 3)
+func test5() {
+	var wg sync.WaitGroup
+	wg.Add(GoNum)
+	for i := 0; i < GoNum; i++ {
+		// 会立马退出，不等待子go
+		func(i int) {
+			defer wg.Done()
+			go func() {
+				fmt.Println(i)
+			}()
+		}(i)
+	}
+	wg.Wait()
+
+	fmt.Println("--------------")
+	wg.Add(GoNum)
+	for i := 0; i < GoNum; i++ {
+		// 并发执行，执行完解锁，等待子go
+		go func(i int) {
+			defer wg.Done()
+			go func() {
+				fmt.Println(i)
+			}()
+		}(i)
+	}
+	wg.Wait()
+	fmt.Println("--------------")
 }
 
 func main() {
-	test(test1, "test1")
-	test(test2, "test2")
-	test(test3, "test3")
-	test(test4, "test4")
+	//fs := [...]func(i int, wg *sync.WaitGroup){test1, test2, test3, test4}
+	type ff = func(i int, wg *sync.WaitGroup)
+	fs := [...]ff{test1, test2, test3, test4}
+
+	var wg sync.WaitGroup
+	wg.Add(len(fs))
+	for _, f := range fs {
+		test(f)
+		wg.Done() // 单行执行，执行完释放
+	}
+	wg.Wait()
+	fmt.Println("test1-4")
+	//test5()
+	fmt.Println("main over")
 }
