@@ -12,108 +12,66 @@ var muRW sync.RWMutex
 const T = time.Second
 const GoNum = 10
 
-func test1(i int, wg *sync.WaitGroup) {
-	defer wg.Done()
-	go func(i int) {
-		mu.Lock()
-		for j := 0; j < 10; j++ {
-			fmt.Printf("%d -> %d  ", i, j)
-		}
-		fmt.Println()
-		mu.Unlock()
-	}(i)
-}
-
-// 加锁需要在 gorountine 内加
-func test2(i int, wg *sync.WaitGroup) {
-	defer wg.Done()
-	mu.Lock()
-	go func(i int) {
-		for j := 0; j < 10; j++ {
-			fmt.Printf("%d -> %d  ", i, j)
-		}
-		fmt.Println()
-	}(i)
-	mu.Unlock()
-}
-
-func test3(i int, wg *sync.WaitGroup) {
-	defer wg.Done()
-	go func(i int) {
-		muRW.Lock()
-		for j := 0; j < 10; j++ {
-			fmt.Printf("%d -> %d  ", i, j)
-		}
-		muRW.Unlock()
-		fmt.Println()
-	}(i)
-}
-
-func test4(i int, wg *sync.WaitGroup) {
-	defer wg.Done()
-	go func(i int) {
-		muRW.RLock()
-		for j := 0; j < 10; j++ {
-			fmt.Printf("%d -> %d  ", i, j)
-		}
-		muRW.RUnlock()
-		fmt.Println()
-	}(i)
-}
-
-func test(f func(i int, wg *sync.WaitGroup)) {
-	var wg sync.WaitGroup
+func test1(wg *sync.WaitGroup) {
+	// 测试lock
 	wg.Add(GoNum)
 	for i := 0; i < GoNum; i++ {
-		//f(i, &wg)  // 会立马退出，不等待子go
-		go f(i, &wg) // 并发执行，执行完解锁，等待子go
+		// mu.Lock 加在此处错误， go func() 开启一个新的协程
+		go func(i int) {
+			defer wg.Done() // 在子协程内释放
+			mu.Lock()
+			for j := 0; j < 10; j++ {
+				fmt.Printf("%d -> %d  ", i, j)
+			}
+			fmt.Println()
+			mu.Unlock()
+		}(i)
 	}
+}
+
+
+func test2(wg *sync.WaitGroup) {
+	// 测试RWlock
+	wg.Add(GoNum)
+	for i := 0; i < GoNum; i++ {
+		go func(i int) {
+			defer wg.Done() // 在子协程内释放
+			muRW.RLock() // 读锁可以重复读, muRW.Lock == mu.Lock --> 写锁
+			for j := 0; j < 10; j++ {
+				fmt.Printf("%d -> %d  ", i, j)
+			}
+			fmt.Println()
+			muRW.RUnlock()
+		}(i)
+	}
+}
+
+func test3(wg *sync.WaitGroup) {
+	fp := func(n int) {
+		time.Sleep(T)
+		fmt.Println(n)
+	}
+	wg.Add(2)
+	func() {
+		defer wg.Done()
+		fp(1)
+	}()
+	func() {
+		defer wg.Done() // 秒释放，不会等待fp(2)
+		go fp(2)
+	}()
+	wg.Wait()
+}
+
+func test(t func(wg *sync.WaitGroup)) {
+	var wg sync.WaitGroup
+	t(&wg)
 	wg.Wait()
 	fmt.Println()
 }
 
-func test5() {
-	var wg sync.WaitGroup
-	wg.Add(GoNum)
-	for i := 0; i < GoNum; i++ {
-		// 会立马退出，不等待子go
-		func(i int) {
-			defer wg.Done()
-			go func() {
-				fmt.Println(i)
-			}()
-		}(i)
-	}
-	wg.Wait()
-
-	fmt.Println("--------------")
-	wg.Add(GoNum)
-	for i := 0; i < GoNum; i++ {
-		// 并发执行，执行完解锁，等待子go
-		go func(i int) {
-			defer wg.Done()
-			go func() {
-				fmt.Println(i)
-			}()
-		}(i)
-	}
-	wg.Wait()
-	fmt.Println("--------------")
-}
-
 func main() {
-	//fs := [...]func(i int, wg *sync.WaitGroup){test1, test2, test3, test4}
-	type ff = func(i int, wg *sync.WaitGroup)
-	fs := [...]ff{test1, test2, test3, test4}
-
-	var wg sync.WaitGroup
-	wg.Add(len(fs))
-	for _, f := range fs {
-		test(f)
-		wg.Done() // 单行执行，执行完释放
-	}
-	wg.Wait()
-	fmt.Println("test1-4")
-	//test5()
-	fmt.Println("main over")
+	test(test1)
+	test(test2)
+	test(test3)
 }
