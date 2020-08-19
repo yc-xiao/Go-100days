@@ -8,19 +8,19 @@ import (
 var i interface{}
 
 func testArrOrSclice() {
-	arrs := []float64{1,2,3,4,5}
+	arrs := []float64{1, 2, 3, 4, 5}
 	i = arrs
 	arrt := reflect.TypeOf(i)
 	arrv := reflect.ValueOf(i)
 	fmt.Println(arrt.Kind(), arrt.Elem().Kind())
-	for i:=0; i < arrv.Len(); i++ {
+	for i := 0; i < arrv.Len(); i++ {
 		a := arrv.Index(i)
 		fmt.Println(a.Kind(), a.Float())
 	}
 }
 
 func testMap() {
-	dic := map[string]float64{"1":1, "2":2, "3":3}
+	dic := map[string]float64{"1": 1, "2": 2, "3": 3}
 	i = dic
 	dict := reflect.TypeOf(i)
 	dicv := reflect.ValueOf(i)
@@ -33,18 +33,18 @@ func testMap() {
 	}
 }
 
-func testStruct(){
+func testStruct() {
 	type persion struct {
-		Name string `json:"name" label:"test"`
-		arr []string `json:"arr" label:"test"`
-		dic map[string]string `json:"dic" label:"test"`
+		Name string            `json:"name" label:"test"`
+		arr  []string          `json:"arr" label:"test"`
+		dic  map[string]string `json:"dic" label:"test"`
 	}
-	p := persion{"小米", []string{"1", "2", "3"}, map[string]string{"4":"4", "5":"5"}}
+	p := persion{"小米", []string{"1", "2", "3"}, map[string]string{"4": "4", "5": "5"}}
 	i = p
 	st := reflect.TypeOf(i)
 	sv := reflect.ValueOf(i)
 	fmt.Println(st.Kind())
-	for i := 0 ; i<st.NumField();i++{
+	for i := 0; i < st.NumField(); i++ {
 		t, v := st.Field(i), sv.Field(i)
 		fmt.Println(t.Name, t.Type, t.Tag.Get("label"), v.Kind())
 		switch v.Kind() {
@@ -52,7 +52,7 @@ func testStruct(){
 			fmt.Println(v.String())
 		case reflect.Slice, reflect.Array:
 			var s string
-			for j:=0; j< v.Len();j++{
+			for j := 0; j < v.Len(); j++ {
 				vv := v.Index(j)
 				s += vv.String()
 			}
@@ -76,4 +76,3 @@ func main() {
 	fmt.Println()
 	testStruct()
 }
-
