@@ -9,9 +9,9 @@ import (
 
 func Loads(i interface{}, data []byte) {
 	// 去掉 {}
-	data = data[1:len(data)-1]
+	data = data[1 : len(data)-1]
 	datas := bytes.Split(data, []byte(","))
-	for _, data = range datas{
+	for _, data = range datas {
 		byteToValue(i, data)
 	}
 	// TODO
@@ -21,7 +21,7 @@ func byteToValue(i interface{}, data []byte) {
 
 }
 
-func Dumps(i interface{}) []byte{
+func Dumps(i interface{}) []byte {
 	// 将 i 的值转换为二进制
 	v := reflect.ValueOf(i)
 	return []byte(getJsonString(v))
@@ -43,7 +43,7 @@ func getJsonString(v reflect.Value) string {
 		return fmt.Sprintf(`%f`, v.Float())
 	case reflect.Array, reflect.Slice:
 		ss := make([]string, v.Len())
-		for i:=0; i < v.Len(); i++ {
+		for i := 0; i < v.Len(); i++ {
 			vv := v.Index(i)
 			ss[i] = getJsonString(vv)
 		}
@@ -63,11 +63,11 @@ func getJsonString(v reflect.Value) string {
 	case reflect.Interface:
 		return getJsonString(v.Elem())
 	case reflect.Ptr:
-		return ""
+		return getJsonString(v.Elem())
 	case reflect.Struct:
 		l := v.NumField()
 		ss := make([]string, l)
-		for i:=0;i<l;i++{
+		for i := 0; i < l; i++ {
 			vattr := v.Type().Field(i)
 			attr, ok := vattr.Tag.Lookup("json")
 			if !ok {
